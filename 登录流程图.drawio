@@ -1,9 +1,89 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.15">
-  <diagram name="第 1 页" id="L8f_ptZAKg0kvK_c3Vta">
-    <mxGraphModel>
+  <diagram name="登录流程" id="L8f_ptZAKg0kvK_c3Vta">
+    <mxGraphModel dx="1393" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="441EStTuC9p1anpUuE3c-1" value="浏览器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#039be5;" vertex="1" parent="1">
+          <mxGeometry x="130" y="60" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-2" value="输入账号密码，点击登录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#fbc02d;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-3" value="前端加密（可选）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#8e24aa;" vertex="1" parent="1">
+          <mxGeometry x="115" y="240" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-4" value="后端 API 接收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#43a047;" vertex="1" parent="1">
+          <mxGeometry x="115" y="330" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-5" value="限流校验（Sentinel）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#fb8c00;" vertex="1" parent="1">
+          <mxGeometry x="105" y="420" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-7" value="未命中 → 查询数据库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#e53935;" vertex="1" parent="1">
+          <mxGeometry x="370" y="510" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-8" value="比对密码（哈希比对）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#00897b;" vertex="1" parent="1">
+          <mxGeometry x="105" y="600" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-9" value="校验用户状态（禁用/冻结/实名认证）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#d81b60;" vertex="1" parent="1">
+          <mxGeometry x="80" y="690" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-10" value="登录成功 → 更新登录日志 → 生成Token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3949ab;" vertex="1" parent="1">
+          <mxGeometry x="60" y="780" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-11" value="Token存储到Redis + 绑定设备" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#7cb342;" vertex="1" parent="1">
+          <mxGeometry x="80" y="870" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-12" value="返回Token给前端，前端持久化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#fbc02d;" vertex="1" parent="1">
+          <mxGeometry x="70" y="960" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-1" target="441EStTuC9p1anpUuE3c-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-2" target="441EStTuC9p1anpUuE3c-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-3" target="441EStTuC9p1anpUuE3c-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-4" target="441EStTuC9p1anpUuE3c-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-5" target="441EStTuC9p1anpUuE3c-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-6" target="441EStTuC9p1anpUuE3c-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-6" target="441EStTuC9p1anpUuE3c-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-6" target="441EStTuC9p1anpUuE3c-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-8" target="441EStTuC9p1anpUuE3c-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-9" target="441EStTuC9p1anpUuE3c-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-10" target="441EStTuC9p1anpUuE3c-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-11" target="441EStTuC9p1anpUuE3c-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="441EStTuC9p1anpUuE3c-7" target="441EStTuC9p1anpUuE3c-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="535" as="sourcePoint" />
+            <mxPoint x="190" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="441EStTuC9p1anpUuE3c-6" value="请求 Redis 查询用户缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#5e35b1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="510" width="200" height="50" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
